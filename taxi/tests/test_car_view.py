@@ -7,7 +7,7 @@ from taxi.models import Car, Manufacturer
 CAR_URL = reverse("taxi:car-list")
 
 
-class PublicCarTest(TestCase):
+class PublicCarViewTest(TestCase):
     def test_login_required(self):
         """
         Test that login is required to access the car page
@@ -16,7 +16,7 @@ class PublicCarTest(TestCase):
         self.assertNotEqual(response.status_code, 200)
 
 
-class PrivateCarTest(TestCase):
+class PrivateCarViewTest(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test_user",

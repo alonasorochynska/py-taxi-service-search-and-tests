@@ -7,7 +7,7 @@ from taxi.models import Driver
 DRIVER_URL = reverse("taxi:driver-list")
 
 
-class PublicDriverTest(TestCase):
+class PublicDriverViewTest(TestCase):
     def test_login_required(self):
         """
         Test that login is required to access the driver page
@@ -16,7 +16,7 @@ class PublicDriverTest(TestCase):
         self.assertNotEqual(response.status_code, 200)
 
 
-class PrivateDriverTest(TestCase):
+class PrivateDriverViewTest(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test_user",

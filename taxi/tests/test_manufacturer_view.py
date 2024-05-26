@@ -7,7 +7,7 @@ from taxi.models import Manufacturer
 MANUFACTURER_URL = reverse("taxi:manufacturer-list")
 
 
-class PublicManufacturerTest(TestCase):
+class PublicManufacturerViewTest(TestCase):
     def test_login_required(self):
         """
         Test that login is required to access the manufacturer page
@@ -16,7 +16,7 @@ class PublicManufacturerTest(TestCase):
         self.assertNotEqual(response.status_code, 200)
 
 
-class PrivateManufacturerTest(TestCase):
+class PrivateManufacturerViewTest(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test_user",
